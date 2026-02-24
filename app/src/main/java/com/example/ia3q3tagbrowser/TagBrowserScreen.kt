@@ -16,6 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.toMutableStateList
+import androidx.compose.runtime.saveable.listSaver
 @Composable
 fun TagBrowserScreen(
     allTags: List<String> = sampleTags()
@@ -24,8 +27,15 @@ fun TagBrowserScreen(
     var query by remember { mutableStateOf("") }
     var onlySelected by remember { mutableStateOf(false) }
     var minLength by remember { mutableFloatStateOf(0f) }
-
-    val selected = remember { mutableStateListOf<String>() }
+    // Preserve selected tags across configuration changes (e.g., screen rotation)
+    val selected = rememberSaveable(
+        saver = listSaver(
+            save = { it.toList() },
+            restore = { it.toMutableStateList() }
+        )
+    ) {
+        mutableStateListOf<String>()
+    }
     // simple filter logic
     val filteredTags = remember(allTags, query, onlySelected, minLength, selected) {
         allTags
@@ -76,7 +86,7 @@ fun TagBrowserScreen(
                 onClear = { selected.clear() }
             )
 
-            Divider()
+            HorizontalDivider()
 
             Text("All Tags", style = MaterialTheme.typography.titleMedium)
 
@@ -107,7 +117,7 @@ fun TagBrowserScreen(
                 }
             }
 
-            Divider()
+            HorizontalDivider()
 
             Text("Filters (FlowColumn)", style = MaterialTheme.typography.titleMedium)
 
