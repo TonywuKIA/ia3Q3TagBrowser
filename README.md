@@ -22,16 +22,24 @@ Divider
 
 Screenshots
 
-Initial screen
+-Initial screen
+
+
 <img width="402" height="863" alt="image" src="https://github.com/user-attachments/assets/5a68cd54-2e78-4d90-b241-c53f7492962e" />
 
-Selected tags
+-Selected tags
+
+
 <img width="400" height="848" alt="image" src="https://github.com/user-attachments/assets/16661657-7894-48c2-8783-49741bad0eda" />
 
-Wrapped layout on small width
+-Wrapped layout on small width
+
+
 <img width="872" height="393" alt="image" src="https://github.com/user-attachments/assets/cb070a1b-39d6-4abb-8caf-d81e0e512fc9" />
 
-With only selected
+-With only selected
+
+
 <img width="381" height="838" alt="image" src="https://github.com/user-attachments/assets/69bc0ad9-5bdf-485d-90c8-d81f484a66b3" />
 
 ## AI Usage Disclosure
